@@ -1,0 +1,38 @@
+// script.js
+
+// Listen for form submission
+document.getElementById('resumeForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Get input values
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const summary = document.getElementById('summary').value.trim();
+    const education = document.getElementById('education').value.trim();
+    const experience = document.getElementById('experience').value.trim();
+    const skills = document.getElementById('skills').value.trim();
+
+    // Generate resume HTML
+    const resumeOutput = `
+        <h2>${fullName}</h2>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Address:</strong> ${address}</p>
+        <h3>Professional Summary</h3>
+        <p>${summary}</p>
+        <h3>Education</h3>
+        <p>${education}</p>
+        <h3>Work Experience</h3>
+        <p>${experience}</p>
+        <h3>Skills</h3>
+        <p>${skills}</p>
+    `;
+
+    // Display the resume
+    document.getElementById('resumeOutput').innerHTML = resumeOutput;
+
+    // Optional: Scroll to the resume output
+    document.getElementById('resumeOutput').scrollIntoView({ behavior: 'smooth' });
+});
